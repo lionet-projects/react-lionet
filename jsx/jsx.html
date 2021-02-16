@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.js"></script>
+
+    <script type="text/javascript">
+        // 定义动态值
+        const msg = "Chova"
+        const ids = 'vea'
+        // 创建虚拟DOM
+        const vDom1 = React.createElement('h2', {id:ids.toLowerCase()}, msg.toUpperCase())
+        // 渲染虚拟DOM
+        ReactDOM.render(vDom1, document.getElementById('box1'))
+    </script>
+
+    <script type="text/babel">
+        // 创建虚拟DOM
+        const vDom2 = <h3 id={ids.toUpperCase()}>{msg.toLowerCase()}</h3>
+        // 渲染虚拟DOM
+        ReactDOM.render(vDom2, document.getElementById('box2'))
+    </script>
+</body>
+</html>
