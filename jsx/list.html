@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表示例</title>
+</head>
+<body>
+    <h2>框架列表</h2>
+
+    <div id="box"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.js"></script>
+
+    <script type="text/babel">
+        // 使用数组保存需要动态展示的列表数据
+        const frameworks = ['jQuery', 'bootstrap', 'angular', 'react', 'vue']
+
+        // 创建虚拟DOM
+        const ul  = (
+            // 使用数组的map方法对数组中的每个元素进行操作: 将数据的数组转换为标签的数组
+            <ul>
+                {frameworks.map((framework, index) => <li key={index}>{framework}</li>)}
+            </ul>
+        )
+        // 渲染虚拟DOM
+        ReactDOM.render(ul, document.getElementById('box'))
+    </script>
+</body>
+</html>
