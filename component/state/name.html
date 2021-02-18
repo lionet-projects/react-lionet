@@ -15,7 +15,7 @@
 
 <script type="text/babel">
     // 1. 定义组件
-    class Like extends React.Component {
+    class Name extends React.Component {
 
         constructor(props) {
             super(props)
@@ -41,11 +41,11 @@
             // 读取state的值
             const {isLikeMe} = this.state
             // 根据不同的state值修改虚拟DOM
-            return <h2 onClick={this.handleClick}>{isLikeMe ? '你喜欢我' : '我喜欢你'}</h2>
+            return <h2 onClick={this.handleClick}>{isLikeMe ? 'Chova Vea' : 'Vea Chova'}</h2>
         }
     }
     // 2.渲染组件标签
-    ReactDOM.render(<Like />, document.getElementById('box'))
+    ReactDOM.render(<Name />, document.getElementById('box'))
 </script>
 </body>
 </html>
