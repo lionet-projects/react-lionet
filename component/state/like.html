@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like组件</title>
+</head>
+<body>
+<div id="box"></div>
+
+
+<script src="../../js/react.development.js"></script>
+<script src="../../js/react-dom.development.js"></script>
+<script src="../../js/babel.js"></script>
+
+<script type="text/babel">
+    // 1. 定义组件
+    class Like extends React.Component {
+
+        constructor(props) {
+            super(props)
+            // 初始化状态
+            this.state = {
+                isLikeMe: false
+            }
+
+            // 将新增的自定义方法中的this绑定为内部组件对象
+            this.handleClick = this.handleClick.bind(this)
+        }
+
+        // 自定义的方法中的this默认不是组件对象,而是undefined,需要进行绑定
+        handleClick() {
+            // 得到state的值并取反
+            const isLikeMe = !this.state.isLikeMe
+            // 更新state的值
+            this.setState({isLikeMe})
+        }
+
+        // 重写组件类中的方法
+        render () {
+            // 读取state的值
+            const {isLikeMe} = this.state
+            // 根据不同的state值修改虚拟DOM
+            return <h2 onClick={this.handleClick}>{isLikeMe ? '你喜欢我' : '我喜欢你'}</h2>
+        }
+    }
+    // 2.渲染组件标签
+    ReactDOM.render(<Like />, document.getElementById('box'))
+</script>
+</body>
+</html>
